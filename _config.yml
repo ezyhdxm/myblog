@@ -1,0 +1,23 @@
+title: Hao'BLog
+author: Hao Yan
+email: yh513447952@outlook.com
+description: Fix my radio
+baseurl: "hao-blog" # the subpath of your site, e.g. /blog
+profile_url: "http://ezyhdxm.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: phipsi41
+github_username:  ezyhdxm
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+excerpt_separator: <!--more-->
+plugins:
+  - jekyll-feed
+exclude:
+  - Gemfile
+  - Gemfile.lock
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge
+
