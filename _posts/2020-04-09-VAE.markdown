@@ -3,7 +3,7 @@ layout: post
 title:  "VAE"
 comments: true
 date:   2020-04-09 18:15:07 +0800
-tags: 生成模型
+tags: generative
 ---
 
 > VAE
