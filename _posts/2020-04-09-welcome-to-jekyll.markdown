@@ -3,7 +3,7 @@ layout: post
 title:  "VAE"
 comments: true
 date:   2020-04-09 18:15:07 +0800
-tags: test
+tags: 生成模型
 ---
 
 > VAE
@@ -36,7 +36,7 @@ $$\begin{aligned}
 
 $$\max _{\theta} \sum_{i} \log p_{\theta}\left(x^{(i)}\right)=\sum_{i} \log \sum_{z} p_{Z}(z) p_{\theta}\left(x^{(i)} \mid z\right)$$
 
-当$$z$$只取少数几个值的时候，我们可以精确计算目标函数，而在$$z$$取值较多时，
+当$$z$$只取少数几个值的时候，我们可以精确计算目标函数，而在$$z$$取值较多时，我们只能做近似。
 ## Importance Sampling
 
 利用Importance Sampling我们可以近似我们的训练目标函数。那么什么样的分布是一个好的分布呢？显然如果使用后验分布$$p_{\theta}(z  \mid x^{i})$$，那我们事实上就是在最小化原始目标函数。Variational Approach原则就是找一个简单的参数分布$$q(z)$$，它与后验分布要尽可能接近。
@@ -44,7 +44,7 @@ $$\max _{\theta} \sum_{i} \log p_{\theta}\left(x^{(i)}\right)=\sum_{i} \log \sum
 衡量分布接近程度的一个标准是KL divergence，两个分布越接近，则KL散度越小。对于分布$$q(z)$$及$$p_{\theta}\left(z \mid x^{(i)}\right)$$，我们希望最小化KL散度
 
 $$\begin{aligned}
-\min _{q(z)} \; &\mathrm{KL}\left(q(z) \mid p_{\theta}\left(z \mid x^{(i)}\right)\right)\\
+&\quad\min _{q(z)} \mathrm{KL}\left(q(z) \mid p_{\theta}\left(z \mid x^{(i)}\right)\right)\\
 &=  \min _{q(z)} \mathbb{E}_{z \sim q(z)} \log \left(\frac{q(z)}{p_{\theta}\left(z \mid x^{(i)}\right)}\right) \\
 &=  \min _{q(z)} \mathbb{E}_{z \sim q(z)} \log \left(\frac{q(z)}{p_{\theta}\left(x^{(i)} \mid z\right) p_{Z}(z) / p_{\theta}\left(x^{(i)}\right)}\right)\\
 &=\quad \min _{q(z)} \mathbb{E}_{z \sim q(z)}\left[\log q(z)-\log p_{Z}(z)-\log p_{\theta}\left(x^{(i)} \mid z\right)\right]+\log p_{\theta}\left(x^{(i)}\right)\\
@@ -52,11 +52,13 @@ $$\begin{aligned}
 \end{aligned}
 $$
 
-注意到$$q(z)$$一般是高斯分布之类的简单分布，$$p_{Z}(z)$$是相对简单的分布，而$$p_{\theta}\left(x^{(i)} \mid z\right)$$一般由一个神经网络来估计，所以这个目标函数是相对容易优化的。
+注意到$$q(z)$$一般是高斯分布之类的简单分布，$$p_{Z}(z)$$是相对简单的分布，而$$p_{\theta}\left(x^{(i)} \mid z\right)$$一般由一个神经网络来估计，所以这个目标函数是相对容易优化的。需要留意的是，我们这里为每一个$$x^{(i)}$$都找了一个$$q(z)$$，这个计算量是很大的，似乎也没太大必要。我们可以考虑这个优化问题的Amortized formulation，即
+
+$$\min _{\phi} \sum_{i} \mathrm{KL}\left(q_{\phi}\left(z \mid x^{(i)}\right) \| p_{\theta}\left(z \mid x^{(i)}\right)\right)$$
+这里的$$q_{\phi}\left(z \mid x^{(i)}\right)$$由神经网络给出。比如说$$q_{\phi}(z \mid x)=\mathcal{N}\left(\mu_{\phi}(x), \sigma_{\phi}^{2}(x)\right)$$，其中的均值与方差都由关于$$x$$的神经网络学习而得。
 
 
-
-
+## VLB
 
 
 
