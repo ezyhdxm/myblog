@@ -21,8 +21,14 @@
     <div style="background-image:url(https://images2.minutemediacdn.com/image/upload/c_fit,f_auto,fl_lossy,q_auto,w_728/v1555999902/shape/mentalfloss/construction_8.gif?itok=1GFBdKOO); background-repeat:repeat-x;background-position: center center;height:8vh;border:1px solid black;padding:10px;">
       </div>
     <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        {{ content }}
+      {% if page.lang %}
+      <div class="post" lang="{{page.lang}}">
+      {% else %}
+      <div class="post">
+      {% endif %}
+        <div class="wrapper">
+          {{ content }}
+        </div>
       </div>
     </main>
 

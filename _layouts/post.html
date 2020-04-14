@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
@@ -34,10 +35,15 @@ layout: default
     </p>
   </header>
 
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
+  {% if page.lang %}
+  <div class="post" lang="{{page.lang}}">
+  {% else %}
+  <div class="post">
+  {% endif %}
+    <div class="post-content" itemprop="articleBody">
+        {{ content }}
+    </div>
   </div>
-
 
   <div class="page-navigation">
     {% if page.previous.url %}
@@ -52,7 +58,6 @@ layout: default
   {% if page.comments %}
     {% include disqus.html %}
   {% endif %}
-
 </article>
 
 <script type="text/javascript" id="MathJax-script" async
