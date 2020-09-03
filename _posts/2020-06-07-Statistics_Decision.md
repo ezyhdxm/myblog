@@ -3,7 +3,7 @@ layout: post
 title:  "统计决策"
 comments: true
 date:   2020-06-07 22:40:00 +0800
-tags: random
+tags: general-statistics
 lang: zh
 ---
 
