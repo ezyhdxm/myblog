@@ -1,6 +1,14 @@
 <header class="site-header" role="banner">
 
-    <div class="wrapper">
+    <div class="site-navi" id="navbar">
+        {% assign default_paths = site.pages | map: "path" %}
+        <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+        <a class="page-link" href="/hao-blog/about.html" target="_blank">&#x1f349; About</a> <!--&#x1f349 represents watermelon unicode-->
+        <a class="page-link" href="{{ "/contact.html" | relative_url }}">&#x1f4ee; Contact</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>    
+    </div>
+
+    <!--div class="wrapper">
         {% assign default_paths = site.pages | map: "path" %}
         <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
@@ -10,7 +18,7 @@
 
         <nav class="site-nav">
             <a class="page-link" href="{{ "/contact.html" | relative_url }}">&#x1f4ee; Contact</a>
-        </nav>
+        </nav-->
 
         
 

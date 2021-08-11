@@ -6,6 +6,7 @@
   <body>
 
     {% include header.html %}
+    
     <script>
       var prevScrollpos = window.pageYOffset;
       window.onscroll = function() {
@@ -13,15 +14,28 @@
         if (prevScrollpos > currentScrollPos) {
           document.getElementById("header-bar").style.top = "0";
         } else {
-          document.getElementById("header-bar").style.top = "-50px";
+          document.getElementById("header-bar").style.top = "-65px";
         }
         prevScrollpos = currentScrollPos;
       }
       </script>
+    
     <!--
     <div style="background-image:url(https://images2.minutemediacdn.com/image/upload/c_fit,f_auto,fl_lossy,q_auto,w_728/v1555999902/shape/mentalfloss/construction_8.gif?itok=1GFBdKOO); background-repeat:repeat-x;background-position: center center;height:8vh;border:1px solid black;padding:10px;">
       </div>
     -->
+    
+    <script>
+      function myFunction() {
+        var x = document.getElementById("navbar");
+        if (x.className === "site-navi") {
+          x.className += " responsive";
+        } else {
+          x.className = "site-navi";
+        }
+      }
+      </script>
+
     <main class="page-content" aria-label="Content">
       {% if page.lang %}
       <div class="post" lang="{{page.lang}}">
@@ -29,7 +43,9 @@
       <div class="post">
       {% endif %}
         <div class="wrapper">
-          {{ content }}
+          <div class="right-content">
+            {{ content }}
+          </div>
         </div>
       </div>
     </main>

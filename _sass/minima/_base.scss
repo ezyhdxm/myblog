@@ -258,10 +258,11 @@ pre {
  * Wrapper
  */
 .wrapper {
-  max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-  max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+  max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 1));
+  max-width:         calc(#{$content-width} - (#{$spacing-unit} * 1));
   margin-right: auto;
   margin-left: auto;
+  padding-top: $spacing-unit;
   padding-right: $spacing-unit;
   padding-left: $spacing-unit;
   @extend %clearfix;
@@ -307,4 +308,21 @@ pre {
   li + li {
     padding-top: 5px;
   }
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  padding: 15px;
+}
+
+.left {
+  flex: 25%;
+}
+
+.right {
+  flex: 75%;
 }
