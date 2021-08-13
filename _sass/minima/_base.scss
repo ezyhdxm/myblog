@@ -326,3 +326,10 @@ pre {
 .right {
   flex: 75%;
 }
+
+#playlist li a{
+  text-decoration: none;
+}
+#playlist .current-song a{
+  color:cadetblue;
+}

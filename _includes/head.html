@@ -6,6 +6,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
     <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
 
@@ -18,7 +19,7 @@
     <link rel="shortcut icon" href="{{ '/assets/images/radio.ico' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-    <link rel="stylesheet" type="text/css" href="/dist/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="/hao-blog/dist/fonts.css" />
     <link rel="stylesheet" href="https://use.typekit.net/ner8oiv.css">
     <link href="https://fonts.loli.net/css?family=Noto+Serif+SC&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC" rel="stylesheet">
