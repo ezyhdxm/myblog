@@ -27,19 +27,19 @@ lang: zh
 
 -  `ls`：查看指定目录下包含哪些文件，效果如下
 
-  ![image-20210813094943294](/hao-blog/assets/images/2021_08_13/image-20210813094943294.png)
+  ![ls](/hao-blog/assets/images/2021_08_13/image-20210813094943294.png)
 
    
 
 - `cd`：切换目录需要使用。在路径中，`.` 表示的是当前目录，而 `..` 表示上级目录，效果如下
 
-  ![image-20210813095228653](/hao-blog/assets/images/2021_08_13/image-20210813095228653.png)
+  ![cd](/hao-blog/assets/images/2021_08_13/image-20210813095228653.png)
 
 
 
 - `mkdir`：新建文件夹。用法为 `mkdir <filename>`，例如
 
-  ![image-20210813095649142](/hao-blog/assets/images/2021_08_13/image-20210813095649142.png)
+  ![mkdir](/hao-blog/assets/images/2021_08_13/image-20210813095649142.png)
 
 
 
@@ -57,13 +57,13 @@ lang: zh
 
 接下来讲讲我们的 Jekyll. 它是一个用来把文本文件转换为静态网站的工具。在装它之前，大家需要先装一些必要的东东。这些东东可以在[这里](https://jekyllrb.com/docs/installation/)看到。接下来按照[这里](https://jekyllrb.com/docs/)的步骤去做就好啦。当然，如果你已经有了一个配置好的文件夹，那么每次做完修改以后只要执行里面的第五、六步就可以预览效果了。操作上可以参考下面的图片
 
-![image-20210813105329147](/hao-blog/assets/images/2021_08_13/image-20210813105329147.png)
+![jekyll](/hao-blog/assets/images/2021_08_13/image-20210813105329147.png)
 
 
 
 在 Git Bash 中输完指令后就可以在浏览器中进行预览了！
 
-![image-20210813105414630](/hao-blog/assets/images/2021_08_13/image-20210813105414630.png)
+![preview](/hao-blog/assets/images/2021_08_13/image-20210813105414630.png)
 
 
 
@@ -122,7 +122,7 @@ lang: zh
 
 `layout` 明确了这是一篇博客，所以采用 `post` 的格式。这里 `post` 就对应了 `_layouts` 文件夹下的 `post.html` 文件。`title` 就是文章的标题。`comments` 对于了这个页面是否可以评论，要是置为 `false` 就是所谓的关评论了呵呵。`date` 我一般写为开始写作的日期。`lang` 是语言设置，不同语言字体加载可能会不一样，所以可以设置设置，这里设置为中文。`tags` 是文章的标签，它能让我们显示一个这样的东东：
 
-![image-20210813115020801](/hao-blog/assets/images/2021_08_13/image-20210813115020801.png)
+![tag](/hao-blog/assets/images/2021_08_13/image-20210813115020801.png)
 
  然后所有的标签还可以在[标签页](https://ezyhdxm.github.io/hao-blog/tags.html)看到，方便大家按类别取用咯。当然，每个标签需要在 `tag` 文件夹中编写一下，格式很简单。以 random 标签为例，random.md 实际上就长这样
 
@@ -162,7 +162,7 @@ tag: random
 
 如果想要播放视频的话，我们一般不会把视频丢到 GitHub Pages 的库里，那样太占地方啦！我们一般会把它上传到其它服务器中，然后再嵌入我们的博客中。假设我们想嵌入一个 b 站视频，比如说[这一个](https://www.bilibili.com/video/BV1cA411j7uL?from=search&seid=5476651152876306862)。那么我们可以去到 b 站，点击转发按钮，复制嵌入代码，
 
-![image-20210813122750392](/hao-blog/assets/images/2021_08_13/image-20210813122750392.png)
+![share](/hao-blog/assets/images/2021_08_13/image-20210813122750392.png)
 
 然后直接粘贴到 Markdown 文件中对应位置就可以了！油管视频也是一样操作哦。
 
@@ -185,11 +185,51 @@ tag: random
 
 <iframe src="https://open.spotify.com/embed/playlist/3Dh4Qk3vJIK3Oa92Pw54vz" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
+如果想上传的音频文件只有自己有的话怎么办呢？那就类似于放图片，只不过我们也得要写直接 HTML. 我手上有一首很久以前写的歌，现在我要把它挂上博客，可以先将它放到对应的文件夹中，然后使用下面这行代码
+
+```html
+<audio ref='themeSong' src="/hao-blog/assets/audios/How/Dark.mp3" controls></audio>
+```
+
+<audio ref='themeSong' src="/hao-blog/assets/audios/How/Dark.mp3" controls></audio>
+
+
+
 要说的应该就是这些啦！
 
 
 
 ### 6. 上传 GitHub Pages
+
+当我们写好一篇博客后，就可以将它提交到 GitHub Pages 上让所有人都看见啦！我们还是回到放所有文件的那个文件夹，在那里输入 Bash 指令
+
+```bash
+git add .
+```
+
+然后继续输入指令创建一个新提交。`-m` 后面可以添加一些提交信息。
+
+```bash
+git commit -m "SOME COMMIT MESSAGE"
+```
+
+最后传送到远端。以我的为例，就是
+
+```bash
+git push -u origin gh-pages
+```
+
+这样就成功了！在我这里看起来是这样子的哦。
+
+![git](/hao-blog/assets/images/2021_08_13/image-20210813132711379.png)
+
+
+
+### 7. 做个总结
+
+整个流程粗略来讲就是这样。我水平超级菜的，做法肯定不是最好的，甚至不是合理的，仅提供一个参考。如果大家有问题，欢迎讨论哦，不过也建议大家去看看[这篇东东](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)。就这样啦。
+
+
 
 
 
