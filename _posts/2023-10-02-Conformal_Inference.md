@@ -16,9 +16,6 @@ lang: en
 ---
 
 
-### Conformal Inference
-
-
 
 #### The Dark Ages of Statistics
 
