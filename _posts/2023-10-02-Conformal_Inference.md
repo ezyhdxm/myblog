@@ -17,7 +17,7 @@ lang: en
 
 
 
-#### The Dark Ages of Statistics
+### The Dark Ages of Statistics
 
 Statisticians, bless their hearts, have a knack for realizing that their machine learning models resemble a toddler's attempt at juggling flaming swords – utterly disastrous. And when it comes to deriving confidence intervals for the parameters in your beloved deep learning models, they're about as lost as a penguin in the Sahara. Even their cherished Lasso, which they've clung to for nearly three decades, remains shrouded in uncertainty, like a mysterious soup recipe passed down through generations. Not to mention trying to find a confidence interval for a BERT parameter. It is like searching for the meaning of life in a cereal box – utterly pointless. 
 
@@ -25,7 +25,7 @@ Statisticians, you see, are a bit like the steadfast believers who think there's
 
 Some statisticians have thrown in the towel when it comes to dissecting the enigma of ResNet-50. Yet, they're still determined to offer you confidence intervals, just like your mom insisting you eat your veggies, except these veggies are so-called statistical uncertainty. Why, you ask? Well, they want your facial recognition system to be as indecisive as a cat contemplating a closed door. So, they've conjured up a whole new realm called "conformal inference" to make sure your front door is a revolving one.
 
-#### How to Ensure That Your Facial Recognition System Can Simultaneously Grant and Deny Access to Your Home
+### How to Ensure That Your Facial Recognition System Can Simultaneously Grant and Deny Access to Your Home
 
 Imagine this: you've got a trusty training set, a batch of $n$ independent and identically distributed samples, snugly wrapped as $Z_i = (X_i, Y_i)$. Now, let's sprinkle a little mystery into the mix. Imagine there's an independently observed covariate, let's call it $X_{n+1}$, plucked from the same distribution as your training set comrades. Your mission, should you choose to accept it, is to conjure up an interval, let's dub it $C(X_{n+1})$. This magical interval needs to be crafted with a dash of uncertainty, a pinch of audacity, so that it confidently hugs $Y_{n+1}$ with a probability of at least $1 - \alpha$:  
 $$
