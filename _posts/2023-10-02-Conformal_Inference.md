@@ -30,7 +30,6 @@ Some statisticians have thrown in the towel when it comes to dissecting the enig
 Imagine this: you've got a trusty training set, a batch of $$n$$ independent and identically distributed samples, snugly wrapped as $$Z_i = (X_i, Y_i)$$. Now, let's sprinkle a little mystery into the mix. Imagine there's an independently observed covariate, let's call it $$X_{n+1}$$, plucked from the same distribution as your training set comrades. Your mission, should you choose to accept it, is to conjure up an interval, let's dub it $$C(X_{n+1})$$. This magical interval needs to be crafted with a dash of uncertainty, a pinch of audacity, so that it confidently hugs $$Y_{n+1}$$ with a probability of at least $$1 - \alpha$$:  
 
 $$
-\centering
 \mathbb{P}(Y_{n+1} \in C(X_{n+1})) \geq 1 - \alpha.
 $$
 
