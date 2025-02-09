@@ -1,7 +1,6 @@
 ---
 layout: default
 title: About
-permalink: "/notes.html"
 ---
 
 Inspired by [Sinho Chewi](https://chewisinho.github.io/class-notes), this page is a collection of notes I take during my graduate study. It will be update monthly starting in October 2022.  
