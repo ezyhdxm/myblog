@@ -1,16 +1,27 @@
 ---
 layout: default
 ---
+
 <div class="home other-pages">
   <h1 class="page-heading">Posts</h1>
+
+  <!-- Language Switch Button -->
+  <div class="language-switch">
+    <span>🌐 </span>
+    <div class="toggle-container">
+      <span class="toggle-label">EN</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="lang-toggle" onchange="toggleLanguage()">
+        <span class="slider"></span>
+      </label>
+      <span class="toggle-label">中文</span>
+    </div>
+  </div>
+
   <ul class="post-list">
     {% for post in site.posts %}
-      {% if post.lang %}
-      <div class="post" lang="{{post.lang}}">
-      {% else %}
-      <div class="post">
-      {% endif %}
-        <li>
+      <div class="post" lang="{{ post.lang }}">
+        <li class="post-item" data-lang="{{ post.lang }}">
           {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
           <span class="post-meta">
             {{ post.date | date: date_format }}
@@ -31,4 +42,33 @@ layout: default
       </div>
     {% endfor %}
   </ul>
- </div>
+</div>
+
+<script>
+  function toggleLanguage() {
+    var isChinese = document.getElementById("lang-toggle").checked;
+    var posts = document.querySelectorAll(".post-item");
+
+    posts.forEach(function(post) {
+        var postLang = post.getAttribute("data-lang");
+
+        if ((isChinese && postLang === "zh") || (!isChinese && postLang === "en")) {
+        post.style.display = "block";
+        } else {
+        post.style.display = "none";
+        }
+    });
+
+    // Store user preference in localStorage
+    localStorage.setItem("selectedLanguage", isChinese ? "zh" : "en");
+    }
+
+    // Set initial language preference from localStorage
+    document.addEventListener("DOMContentLoaded", function() {
+    var savedLang = localStorage.getItem("selectedLanguage");
+    var isChinese = savedLang === "zh";
+
+    document.getElementById("lang-toggle").checked = isChinese;
+    toggleLanguage();
+    });
+</script>
